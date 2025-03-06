@@ -1,4 +1,4 @@
-## 1. Introduction to PostgreSQL
+## Introduction to PostgreSQL
 PostgreSQL is an advanced, open-source, object-relational database management system (ORDBMS) known for its robustness, extensibility, 
 and compliance with SQL standards.
 
@@ -12,7 +12,7 @@ and compliance with SQL standards.
 - Logical and physical replication
 - Partitioning and sharding capabilities
 
-## 2. Installation and Setup
+## Installation and Setup
 ##### install PostgreSQL on windows with zip file #####
 1) Download and extract zip file from following url
 https://www.enterprisedb.com/download-postgresql-binaries
@@ -38,7 +38,7 @@ https://www.enterprisedb.com/download-postgresql-binaries
 	http://127.0.0.1:59931/?key=YOUR_KEY 
 	Copy this and open in your browser  
     
-## 3. PostgreSQL Architecture
+##  PostgreSQL Architecture
 - **Postmaster Process**: Manages connections and starts subprocesses.
 - **Background Processes**: Handles WAL (Write-Ahead Logging), autovacuum, and background writer.
 - **Shared Buffers**: Memory buffer for caching data pages.
@@ -52,26 +52,15 @@ ALTER USER myuser WITH SUPERUSER;
 DROP USER myuser;
 ```
 
-## 6. Indexing
+## Indexing
 Indexes improve search performance.
 ```sql
 CREATE INDEX idx_name ON employees(name);
 DROP INDEX idx_name;
 ```
 
-## 7. Joins
-### Inner Join
-```sql
-SELECT e.name, d.department_name FROM employees e
-JOIN departments d ON e.department = d.id;
-```
-### Left Join
-```sql
-SELECT e.name, d.department_name FROM employees e
-LEFT JOIN departments d ON e.department = d.id;
-```
 
-## 8. Transactions
+## Transactions
 ```sql
 BEGIN;
 UPDATE employees SET age = 32 WHERE name = 'John Doe';
@@ -79,14 +68,14 @@ COMMIT;
 -- or ROLLBACK;
 ```
 
-## 9. Views
+##  Views
 ```sql
 CREATE VIEW employee_view AS SELECT name, age FROM employees;
 SELECT * FROM employee_view;
 DROP VIEW employee_view;
 ```
 
-## 10. Stored Procedures and Functions
+##  Stored Procedures and Functions
 ```sql
 CREATE FUNCTION get_employee_count() RETURNS INT AS $$
 DECLARE 
@@ -98,7 +87,7 @@ END;
 $$ LANGUAGE plpgsql;
 ```
 
-## 11. Backup and Restore
+##  Backup and Restore
 ### Backup
 ```bash
 pg_dump mydb > backup.sql
@@ -108,33 +97,33 @@ pg_dump mydb > backup.sql
 psql mydb < backup.sql
 ```
 
-## 12. Security and Permissions
+##  Security and Permissions
 ```sql
 GRANT ALL PRIVILEGES ON TABLE employees TO myuser;
 REVOKE ALL PRIVILEGES ON TABLE employees FROM myuser;
 ```
 
-## 13. Performance Optimization
+##  Performance Optimization
 - Use **EXPLAIN ANALYZE** to analyze query performance.
 - Use proper indexing.
 - Avoid sequential scans by optimizing queries.
 - Use partitioning for large datasets.
 - Regularly vacuum and analyze tables.
 
-## 14. Extensions
+##  Extensions
 Enable extensions for additional functionalities.
 ```sql
 CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
 SELECT uuid_generate_v4();
 ```
 
-## 15. Replication and High Availability
+## Replication and High Availability
 - Streaming Replication
 - Logical Replication
 - Load Balancing with PgBouncer
 - Failover using Patroni or repmgr
 
-## 16. JSON Support
+##  JSON Support
 ```sql
 CREATE TABLE products (
     id SERIAL PRIMARY KEY,
@@ -144,7 +133,7 @@ INSERT INTO products (details) VALUES ('{"name": "Laptop", "price": 1200}');
 SELECT details->>'name' FROM products;
 ```
 
-## 17. Common Errors and Solutions
+##  Common Errors and Solutions
 ### Connection Issues
 ```bash
 psql: could not connect to server: No such file or directory
