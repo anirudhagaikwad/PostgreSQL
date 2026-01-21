@@ -1,0 +1,31 @@
+1) Download zip archive
+2) Extract it using external application like WinRAR
+3) switch to extracted folder i.e. "pgsql"
+4) create "data" folder 
+5) press WIN+R to open Run utility
+6) enter "sysdm.cpl" to open system property
+7) go to "advanced" tab and click "Environment Variables" button
+8) from "system variables" panel select "path" and click to "edit"
+9) set "bin" "lib" "data" and "runtime" folder path from "pgsql" folder
+10) create system variable "PGDATA" and store "data" folder absolute path as value
+11) Click "OK" and close 
+12) Open Console(CMD) check your PostgreSQL version using command "postgres --version"
+13) Configure data folder using following command
+    "E:\Softwares\Postgresql_17_2Jul25\pgsql\bin\initdb.exe -U postgres -A password -E utf8 -W -D E:\Softwares\Postgresql_17_2Jul25\pgsql\data"
+14) set superuser password
+15) enter password again
+16)its Done
+-------------------------------------------------
+How to start PostgreSQL
+1) Open Console
+2) enter command  to start database "pg_ctl -l logfile start"
+3) enter command  to restart database "pg_ctl -l logfile restart"
+4) enter command  to start database "pg_ctl -l logfile stop"
+---------------------------------------------------
+How to open GUI Client Application -> "pgadmin4"
+1) Open "pgAdmin 4" folder from pgsql
+2) from "runtime" folder open "pgAdmin4.exe"
+
+
+
+
